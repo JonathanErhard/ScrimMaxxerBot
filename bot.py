@@ -24,9 +24,10 @@ def run_discord_bot():
     async def on_message(message):
         if message.author == client.user:
             return
-        username = str(message.author)
+        
+        #username = str(message.author)
         user_message = str(message.content)
-        channel = str(message.channel)
+        #channel = str(message.channel)
 
         if user_message[0] == '!':
             user_message = user_message[1:]
