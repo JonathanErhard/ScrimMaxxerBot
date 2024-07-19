@@ -13,6 +13,10 @@ dict_path = "death.note"
 def handle_response(message:str) -> str:
     if message.startswith("condemn:\n"):
         return condemn_subject(message[9:])
+    if message.startswith("pls help"):
+        return send_help()
+    if message.startswith("pull"):
+        return "Hi! type ```pls help``` if ur desperate"
     return judge(message)
 
 def read_dic() -> {str,str}:
@@ -58,3 +62,7 @@ def judge(message:str) -> str:
                 case Crime.SUS_MANAGER:
                     ret += f"{player} managed a blacklisted team\n"
     return ret
+
+def send_help() -> str:
+    f = open("pls_help.md","r")
+    return f.read()
